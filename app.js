@@ -3,12 +3,11 @@ const bodyParser = require('body-parser')
 const res = require('express/lib/response')
 const app = express()
 app.use(bodyParser.json())
-const PORT = 1000
+const PORT = 2000
 app.listen(PORT, () => {
-    console.log("Listening on port 1000...")
+    console.log("Listening on port 2000...")
 })
 const properties = require('./properties')
-
 //get twitter user with screen name👏👏
 app.get('/user/:screen_name', async (req, res) => {
     let neededUser = []
@@ -33,6 +32,7 @@ app.get('/allTweets', (req, res) => {
     let tweets = []
     for (let i = 0; i < properties.length; i++) {
         tweets.push({
+            "Count": i + 1,
             "Tweet was posted on": properties[i].created_at,
             "Tweet Id": properties[i].id,
             "User who tweeted": {
@@ -42,7 +42,13 @@ app.get('/allTweets', (req, res) => {
             "Tweet caption": properties[i].text
         })
     }
-    return res.status(200).send(tweets)
+    if (!tweets == []) {
+        res.status(200).send(tweets)
+    }
+    else {
+        res.status(200).send(tweets)
+    }
+
 })
 // api to get tweetInfo
 app.get('/tweetInfo/:id', (req, res) => {
@@ -61,10 +67,10 @@ app.get('/tweetInfo/:id', (req, res) => {
             })
         }
     }
-    if(tweetInfo == []){
-        res.status(400).send("No such user found")
-    }    
-    // return res.status(200).send(tweetInfo)
+    // if(!tweetInfo == []){
+    //     res.status(400).send("No such user found")
+    // }  else {    return res.status(200).send(tweetInfo)}  
+    return res.status(200).send(tweetInfo)
 })
 //api to get all twitter users
 app.get('/users', async (req, res) => {
