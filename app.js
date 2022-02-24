@@ -2,6 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const res = require('express/lib/response')
 const app = express()
+const cors = require('cors')
+
+app.use(cors())
+
 app.use(bodyParser.json())
 const PORT = 2000
 app.listen(PORT, () => {
@@ -11,9 +15,8 @@ const properties = require('./properties')
 //api to get twitter user with screen name👏👏
 app.get('/user/:screen_name', async (req, res) => {
     let neededUser = []
-    let err
     for (let i = 0; i < properties.length; i++) {
-        if (properties[i].user.screen_name == req.params.screen_name) {
+        if (properties[i].user.screen_name.toLowerCase() == req.params.screen_name.toLowerCase()) {
             neededUser.push({
                 "Screen name": properties[i].user.screen_name,
                 "Full names": properties[i].user.name,
@@ -56,7 +59,7 @@ app.get('/tweetInfo/:id', (req, res) => {
     let tweetInfo = []
     for (let i = 0; i < properties.length; i++) {
         if (properties[i].id == req.params.id) {
-            console.log(properties[i].id)
+            // console.log(properties[i].id)
             tweetInfo.push({
                 "Created at": properties[i].created_at,
                 "User who posted the tweet": properties[i].user.name,

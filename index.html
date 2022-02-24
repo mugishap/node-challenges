@@ -1,12 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rest APIs implementation</title>
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-div.requests
+    <div class="main">
+        <h1 class="heading">Twitter GET APIs</h1>
+        <div class="need">
+            <div class="sections-header">
+                <p class="response1">What do u wanna do</p>
+            </div>
+            <div class="sections">Get all tweets</div>
+            <div class="sections">Get all twitter users</div>
+            <div class="sections">Get tweet by ID</div>
+            <div class="sections">Get user by screen name</div>
+            <div class="sections">Get links in a tweet</div>
+            <div class="responses" id="allTweets">
+                <div class="outputs requirements">
+                    <h2>Requirements</h2>
+                    <ol>
+                        <li>No requirement for this request</li>
+                    </ol>
+                </div>
+                <div class="outputs request">
+                    <h2>Request</h2>
+                    <form id="form-all-tweets">
+                        <label><input type="submit" value="Get tweets"></label>
+                    </form>
+                </div>
+                <div class="outputs">
+                    <h2>Output</h2>
+                    <span id="result"></span>
+                </div>
+            </div>
+            <div class="responses" id="allAccounts">
+                <div class="outputs requirements">
+                    <h2>Requirements</h2>
+                    <ol>
+                        <li>No requirements for this request</li>
+                    </ol>
+                </div>
+                <div class="outputs request">
+                    <h2>Request</h2>
+                    <form id="form-all-users">
+                        <label><input type="submit" value="Get users"></label>
+                    </form>
+                </div>
+                <div class="outputs">
+                    <h2>Output</h2>
+                    <span id="result3"></span>
+                </div>
+            </div>
+            <div class="responses" id="tweetsById">
+                <div class="outputs requirements">
+                    <h2>Requirements</h2>
+                    <ol>
+                        <li>Give valid tweet ID in input below</li>
+                        <li>
+                            <ol>Sample IDs
+                                <li>311975360667459585</li>
+                                <li>311964132205268992</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+                <div class="outputs request">
+                    <h2>Request</h2>
+                    <form id="form-tweet-id">
+                        <label><input placeholder="Enter tweet ID" type="text"></label>
+                        <label><input type="submit" value="Get the tweet"></label>
+                    </form>
+                </div>
+                <div class="outputs">
+                    <h2>Output</h2>
+                    <span id="result2"></span>
+                </div>
+            </div>
+            <div class="responses" id="userByName">
+                <div class="outputs requirements">
+                    <h2>Requirements</h2>
+                    <ol>
+                        <li>Give valid screen name(username) in input below</li>
+                        <li>
+                            <ol>Sample Username
+                                <li>SarahPrevette</li>
+                                <li>MarkUry</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+                <div class="outputs request">
+                    <h2>Request</h2>
+                    <form id="form-user-screenName">
+                        <label><input type="text" name="screen_name" id=""></label>
+                        <label><input type="button" value="Get user"></label>
+                    </form>
+                </div>
+                <div class="outputs">
+                    <h2>Output</h2>
+                    <span class="result"></span>
+                </div>
+            </div>
+            <!-- <div class="responses" id="links">
+                <div class="outputs requirements">
+                    <h2>Requirements</h2>
+                    <ol>
+                        <li>Give valid tweet ID in input below</li>
+                    </ol>
+                </div>
+                <div class="outputs request">
+                    <h2>Request</h2>
+                    <form id="form-tweet-id">
+                        <label><input type="text" name="" id=""></label>
+                        <label><input type="button" value="Get the tweet"></label>
+                    </form>
+                </div>
+                <div class="outputs">
+                    <h2>Output</h2>
+                    <span class="result"></span>
+                </div>
+            </div> -->
+        </div>
+        <script src="index.js"></script>
 </body>
+
 </html>
