@@ -8,7 +8,7 @@ app.listen(PORT, () => {
     console.log("Listening on port 2000...")
 })
 const properties = require('./properties')
-//get twitter user with screen name👏👏
+//api to get twitter user with screen name👏👏
 app.get('/user/:screen_name', async (req, res) => {
     let neededUser = []
     let err
