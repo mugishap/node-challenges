@@ -67,6 +67,7 @@ app.get('/tweetInfo/:id', (req, res) => {
                 "Tweet caption": properties[i].text,
                 "Followers": properties[i].user.followers_count,
                 "Following": properties[i].user.following,
+                "Tweet Id": properties[i].id,
             })
         }
     }

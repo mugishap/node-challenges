@@ -74,9 +74,23 @@ formId.addEventListener('submit', e => {
     fetch('http://localhost:2000/tweetInfo/' + tweetID, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.text())
-        .then(data => document.getElementById("result2").innerHTML = data)
+    }).then(res => res.json())
+        .then(data => document.getElementById("result2").innerHTML = arrangeByTweetId(data))
 })
+//function to arrange the output
+const arrangeByTweetId = data => {
+    let holder = []
+    let tweetId, user, time
+    for (i = 0; i < data.length; i++) {
+    tweetId = "Tweet ID: " + data[i]["Tweet Id"] + `<br>`
+    user = "Courtesy of: " + data[i]["User who posted the tweet"] + `<br>`
+    time = "Created on: " + data[i]["Created at"] + `<hr>`
+       holder.push(tweetId + user + time) 
+    }
+    return holder
+}
+//laslty call the function in second then
+
 //first prevent the default actions of a form 
 //get all users on the platform
 formAllUsers.addEventListener('load', e => {
@@ -116,13 +130,17 @@ formScreenName.addEventListener('submit', e => {
         headers: { 'Content-Type': 'application/json' }
     })
         .then(res => res.json())
-        .then(data => document.getElementById("byName").innerHTML = data)
+        .then(data => document.getElementById("byName").innerHTML = arrangeScreenNameOutput(data))
 })
-let arrangeScreenNameOutput = data => {
+const arrangeScreenNameOutput = data => {
     let holder = []
-    let name,screenName
+    let name, screenName, followers, following
     for (i = 0; i < data.length; i++) {
-        let text = 
-        
+        name = "Full Name: " + data[i]["Full names"] + "." + `<br>`
+        screenName = "Screen Name: " + data[i]["Screen name"] + "." + `<br>`
+        followers = "Followers: " + data[i]["Followers"] + "." + `<br>`
+        following = "Following: " + data[i]["Following"] + "." + `<hr>`
+        holder.push(name + screenName + followers + following)
     }
+    return holder
 }
