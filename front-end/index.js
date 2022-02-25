@@ -44,7 +44,7 @@ formAllTweets.addEventListener('load', e => {
 })
 formAllTweets.addEventListener('submit', e => {
     e.preventDefault()
-    fetch('http://twitter-get-apis-demo.herokuapp.com/allTweets', {
+    fetch('https://twitter-get-apis-demo.herokuapp.com/allTweets', {
         method: "GET",
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
@@ -69,9 +69,9 @@ formId.addEventListener('load', e => {
     e.preventDefault()
 })
 formId.addEventListener('submit', e => {
-    // let route = 'http://twitter-get-apis-demo.herokuapp.com/tweetInfo/'+ tweetID
+    // let route = 'https://twitter-get-apis-demo.herokuapp.com/tweetInfo/'+ tweetID
     e.preventDefault()
-    fetch('http://twitter-get-apis-demo.herokuapp.com/tweetInfo/' + tweetID, {
+    fetch('https://twitter-get-apis-demo.herokuapp.com/tweetInfo/' + tweetID, {
         method: "GET",
         headers: { 'Content-Type': 'application/json' }
     }).then(res => res.json())
@@ -98,7 +98,7 @@ formAllUsers.addEventListener('load', e => {
 })
 formAllUsers.addEventListener('submit', e => {
     e.preventDefault()
-    fetch('http://twitter-get-apis-demo.herokuapp.com/users', {
+    fetch('https://twitter-get-apis-demo.herokuapp.com/users', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
@@ -125,7 +125,7 @@ formScreenName.addEventListener('load', e => {
 })
 formScreenName.addEventListener('submit', e => {
     e.preventDefault()
-    fetch('http://twitter-get-apis-demo.herokuapp.com/user/' + screen_name, {
+    fetch('https://twitter-get-apis-demo.herokuapp.com/user/' + screen_name, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
