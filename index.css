@@ -60,6 +60,7 @@ ol ol li {
     border-radius: 5px;
     flex-flow: column wrap;
     align-items: center;
+    overflow-y: scroll;
 }
 
 ol li {
