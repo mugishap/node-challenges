@@ -1,2 +1,0 @@
-# node-challenges
-Node challenges
