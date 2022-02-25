@@ -12,23 +12,26 @@
 <body>
     <div class="main">
         <h1 class="heading">Twitter GET APIs</h1>
+        <div class="sections-header">
+            <p class="response1">What do u wanna do</p>
+        </div>
+        <div class="navholder">
+            <div onclick="showGetAllTweets()" class="sections">Get all tweets</div>
+            <div onclick="showGetAllUsers()" class="sections">Get all twitter users</div>
+            <div onclick="showGetTweetById()" class="sections">Get tweet by ID</div>
+            <div onclick="showGetUserByScreenName()" class="sections">Get user by screen name</div>
+            <div onclick="showGetAllLinks()" class="sections">Get links in a tweet</div>
+        </div>
+
         <div class="need">
-            <div class="sections-header">
-                <p class="response1">What do u wanna do</p>
-            </div>
-            <div class="sections">Get all tweets</div>
-            <div class="sections">Get all twitter users</div>
-            <div class="sections">Get tweet by ID</div>
-            <div class="sections">Get user by screen name</div>
-            <div class="sections">Get links in a tweet</div>
             <div class="responses" id="allTweets">
-                <div class="outputs requirements">
+                <div class="outputs">
                     <h2>Requirements</h2>
                     <ol>
                         <li>No requirement for this request</li>
                     </ol>
                 </div>
-                <div class="outputs request">
+                <div class="outputs">
                     <h2>Request</h2>
                     <form id="form-all-tweets">
                         <label><input type="submit" value="Get tweets"></label>
@@ -73,7 +76,7 @@
                 <div class="outputs request">
                     <h2>Request</h2>
                     <form id="form-tweet-id">
-                        <label><input placeholder="Enter tweet ID" type="text"></label>
+                        <label><input oninput="getID(event)" placeholder="Enter tweet ID" type="text"></label>
                         <label><input type="submit" value="Get the tweet"></label>
                     </form>
                 </div>
@@ -98,13 +101,13 @@
                 <div class="outputs request">
                     <h2>Request</h2>
                     <form id="form-user-screenName">
-                        <label><input type="text" name="screen_name" id=""></label>
-                        <label><input type="button" value="Get user"></label>
+                        <label><input oninput="getScreenName(event)" placeholder="Enter username" type="text" name="screen_name"></label>
+                        <label><input type="submit" value="Get user"></label>
                     </form>
                 </div>
                 <div class="outputs">
                     <h2>Output</h2>
-                    <span class="result"></span>
+                    <span id="byName"></span>
                 </div>
             </div>
             <!-- <div class="responses" id="links">
