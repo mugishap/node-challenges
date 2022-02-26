@@ -4,6 +4,7 @@ function showGetAllTweets() {
     document.getElementById("userByName").style.display = 'none'
     document.getElementById("allAccounts").style.display = 'none'
     document.getElementById("tweetsById").style.display = 'none'
+    document.getElementById("links").style.display = "none"
 }
 
 function showGetAllUsers() {
@@ -11,6 +12,7 @@ function showGetAllUsers() {
     document.getElementById("allTweets").style.display = 'none'
     document.getElementById("userByName").style.display = 'none'
     document.getElementById("tweetsById").style.display = 'none'
+    document.getElementById("links").style.display = "none"
 }
 
 function showGetUserByScreenName() {
@@ -18,6 +20,7 @@ function showGetUserByScreenName() {
     document.getElementById("allAccounts").style.display = 'none'
     document.getElementById("allTweets").style.display = 'none'
     document.getElementById("tweetsById").style.display = 'none'
+    document.getElementById("links").style.display = "none"
 }
 
 function showGetTweetById() {
@@ -25,12 +28,15 @@ function showGetTweetById() {
     document.getElementById("allAccounts").style.display = 'none'
     document.getElementById("allTweets").style.display = 'none'
     document.getElementById("userByName").style.display = 'none'
+    document.getElementById("links").style.display = "none"
 }
 function showGetAllLinks() {
+    document.getElementById("links").style.display = "flex"
     document.getElementById("allAccounts").style.display = 'none'
     document.getElementById("allTweets").style.display = 'none'
     document.getElementById("userByName").style.display = 'none'
-    document.getElementById(".tweetsById").style.display = 'none'
+    document.getElementById("tweetsById").style.display = 'none'
+
 }
 
 
@@ -49,6 +55,7 @@ let formAllTweets = document.getElementById("form-all-tweets")
 let formAllUsers = document.getElementById("form-all-users")
 let formId = document.getElementById("form-tweet-id")
 let formScreenName = document.getElementById("form-user-screenName")
+let formAllLinks = document.getElementById("form-links")
 //prevent the default activities of the form on submit and load
 //for geting all tweets on the platform
 formAllTweets.addEventListener('load', e => {
@@ -157,5 +164,17 @@ const arrangeScreenNameOutput = data => {
     return holder
 }
 
-
-//Stupid comment
+formAllLinks.addEventListener('load', e => {
+    e.preventDefault()
+})
+formAllLinks.addEventListener('submit', e => {
+    e.preventDefault()
+    await fetch('https://twitter-get-apis-demo.herokuapp.com/links', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(res => res.json())
+        .then( data => document.getElementById("resultLinks").innerHTML = data)
+//arrange the users
+}
+)
