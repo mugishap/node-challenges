@@ -1,24 +1,36 @@
 function showGetAllTweets() {
+
     document.getElementById("allTweets").style.display = 'flex'
+    document.getElementById("userByName").style.display = 'none'
+    document.getElementById("allAccounts").style.display = 'none'
+    document.getElementById("tweetsById").style.display = 'none'
 }
 
 function showGetAllUsers() {
     document.getElementById("allAccounts").style.display = 'flex'
-}
-
-function showGetUserById() {
-    document.getElementById("allTweets").style.display = 'flex'
+    document.getElementById("allTweets").style.display = 'none'
+    document.getElementById("userByName").style.display = 'none'
+    document.getElementById("tweetsById").style.display = 'none'
 }
 
 function showGetUserByScreenName() {
     document.getElementById("userByName").style.display = 'flex'
+    document.getElementById("allAccounts").style.display = 'none'
+    document.getElementById("allTweets").style.display = 'none'
+    document.getElementById("tweetsById").style.display = 'none'
 }
 
 function showGetTweetById() {
     document.getElementById("tweetsById").style.display = 'flex'
+    document.getElementById("allAccounts").style.display = 'none'
+    document.getElementById("allTweets").style.display = 'none'
+    document.getElementById("userByName").style.display = 'none'
 }
 function showGetAllLinks() {
-    document.getElementById("link").style.display = 'flex'
+    document.getElementById("allAccounts").style.display = 'none'
+    document.getElementById("allTweets").style.display = 'none'
+    document.getElementById("userByName").style.display = 'none'
+    document.getElementById(".tweetsById").style.display = 'none'
 }
 
 
@@ -82,10 +94,10 @@ const arrangeByTweetId = data => {
     let holder = []
     let tweetId, user, time
     for (i = 0; i < data.length; i++) {
-    tweetId = "Tweet ID: " + data[i]["Tweet Id"] + `<br>`
-    user = "Courtesy of: " + data[i]["User who posted the tweet"] + `<br>`
-    time = "Created on: " + data[i]["Created at"] + `<hr>`
-       holder.push(tweetId + user + time) 
+        tweetId = "Tweet ID: " + data[i]["Tweet Id"] + `<br>`
+        user = "Courtesy of: " + data[i]["User who posted the tweet"] + `<br>`
+        time = "Created on: " + data[i]["Created at"] + `<hr>`
+        holder.push(tweetId + user + time)
     }
     return holder
 }
